@@ -1,8 +1,26 @@
+using System;
+
 namespace DesafioPOO.Models
 {
-    // TODO: Herdar da classe "Smartphone"
-    public class Iphone
+    public class Iphone : Smartphone
     {
-        // TODO: Sobrescrever o método "InstalarAplicativo"
+        public Iphone(string numero, string modelo, string imei, int memoria)
+            : base(numero, modelo, imei, memoria)
+        {
+        }
+
+        // iPhone instala aplicativos via App Store (simulado)
+        public override void InstalarAplicativo(string nomeAplicativo)
+        {
+            if (!string.IsNullOrWhiteSpace(nomeAplicativo))
+            {
+                Console.WriteLine($"[iPhone] Buscando {nomeAplicativo} na App Store do {this.GetType().Name}...");
+                Console.WriteLine($"[iPhone] {nomeAplicativo} instalado com sucesso!");
+            }
+            else
+            {
+                Console.WriteLine("[iPhone] Nome de aplicativo inválido.");
+            }
+        }
     }
 }
